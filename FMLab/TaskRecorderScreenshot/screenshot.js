@@ -11,7 +11,8 @@ document.addEventListener("screenshot", function() {
 			canvas.width = window.innerWidth * ratio;
 			canvas.height = window.innerHeight * ratio;
 			var taskRecorderPaneWidth = document.getElementById('asidePane').clientWidth * ratio;
-			context.drawImage(image, 0, 0, (canvas.width - taskRecorderPaneWidth), canvas.height, 0, 0, canvas.width, canvas.height);
+			var TaskRecorderToolbarHeight = document.getElementById('TaskRecorderToolbar').clientHeight * ratio;
+			context.drawImage(image, 0, TaskRecorderToolbarHeight, (canvas.width - taskRecorderPaneWidth), canvas.height, 0, 0, canvas.width - taskRecorderPaneWidth, canvas.height - TaskRecorderToolbarHeight);
 			var croppedImage = canvas.toDataURL('image/png');
 
 			var origin = window.location.protocol + "//" + window.location.host;
